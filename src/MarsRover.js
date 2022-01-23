@@ -52,4 +52,18 @@ export default class MarsRover {
         }
     }
 
+    move() {
+        const orderItems = this.order.split('');
+        orderItems.forEach(orderItem => {
+            this.order = orderItem;
+            if(orderItem === 'L' || orderItem === 'R') {
+                this.turn();
+            } else if (orderItem === 'M') {
+                this.moveForward();
+            } else {
+                return;
+            }
+        });
+    }
+
 }
