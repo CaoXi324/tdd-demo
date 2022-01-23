@@ -19,14 +19,14 @@ export default class MarsRover {
         const direction = this.order;
         const LEFT = 'L';
         const RIGHT = 'R';
-        const orientations = ['north', 'east', 'south', 'west'];
+        const orientations = ['N', 'E', 'S', 'W'];
         if (direction === LEFT) {
-            orientations.unshift('west');
+            orientations.unshift('W');
             const newIndex = orientations.lastIndexOf(this.orientation) - 1;
             const newOrientation = orientations[newIndex];
             this.orientation = newOrientation;
         } else if (direction === RIGHT) {
-            orientations.push('north');
+            orientations.push('N');
             const newIndex = orientations.indexOf(this.orientation) + 1;
             const newOrientation = orientations[newIndex];
             this.orientation = newOrientation;
@@ -37,16 +37,18 @@ export default class MarsRover {
 
     moveForward() {
         switch (this.orientation) {
-            case 'north':
+            
+
+            case 'N':
                 this.y++;
                 break;
-            case 'east':
+            case 'E':
                 this.x++;
                 break;
-            case 'south':
+            case 'S':
                 this.y--;
                 break;
-            case 'west':
+            case 'W':
                 this.x--;
                 break;
         }
