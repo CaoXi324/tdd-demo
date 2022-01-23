@@ -11,17 +11,26 @@ describe('MarsRover', () => {
             expect(marsRover.getPosition()).toEqual(expectedPosition);
       })
 
-      it('should turn correctly', () => {
-            const marsRover = new MarsRover(1, 1, 'north');
-            const direction = 'L';
+      it('should turn correctly when the order is turning', () => {
+            const marsRover = new MarsRover(1, 1, 'north', 'L');
             const expectedPosition = {
                   x: 1,
                   y: 1,
                   orientation: 'west'
             };
-            marsRover.turn(direction);
+            marsRover.turn();
             expect(marsRover.getPosition()).toEqual(expectedPosition);
+      })
 
+      it('should move correctly when the order is moving', () => {
+            const marsRover = new MarsRover(1, 1, 'north', 'M');
+            const expectedPosition = {
+                  x: 1,
+                  y: 2,
+                  orientation: 'north'
+            };
+            marsRover.moveForward();
+            expect(marsRover.getPosition()).toEqual(expectedPosition);
       })
 
 })
